@@ -30,10 +30,13 @@ cd python-installer
 Use the Makefile to build a specific Python version:
 
 ```bash
-make build PYTHON_VERSION=<python_version>
+make build PYTHON_VERSION=<python_version> BUILD_OPTIONS=<build_options>
 ```
 
-- Replace `<python_version>` with the desired version (e.g., `3.11.11`) or set the default in the Makefile.
+Replace `<python_version>` with the desired version (e.g., `3.11.11`) or set the default in the Makefile.  
+Replace `<build_options>` with the desired configuration or set the default in the Makefile.
+
+> Python configure documentation: [Python Configure](https://docs.python.org/3/using/configure.html).
 
 ### Install the Built Python Version
 
@@ -43,8 +46,8 @@ After building, install the Python version locally:
 make install PYTHON_VERSION=<python_version> INSTALL_DIR=<install_dir>
 ```
 
-- Replace `<python_version>` with your version or set the default in the Makefile.
-- Replace `<install_dir>` with the desired installation directory or set the default in the Makefile.
+Replace `<python_version>` with your version or set the default in the Makefile.  
+Replace `<install_dir>` with the desired installation directory or set the default in the Makefile.
 
 ## Contributing
 
