@@ -6,11 +6,11 @@ build:
 	--build-arg=PYTHON_VERSION=${PYTHON_VERSION} \
 	.
 
-extract: build
+extract:
 	CONTAINER_ID=$(shell docker create python:${PYTHON_VERSION}) && \
 	docker cp $$CONTAINER_ID:/pkg/python${PYTHON_VERSION}.tar.gz . && \
 	docker rm $$CONTAINER_ID
 
-install: build extract
+install: extract
 	tar -xzf python${PYTHON_VERSION}.tar.gz -C ${INSTALL_DIR}
 	rm python${PYTHON_VERSION}.tar.gz
