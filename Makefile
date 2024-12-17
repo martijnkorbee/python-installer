@@ -6,8 +6,7 @@ build:
 	--build-arg=PYTHON_VERSION=${PYTHON_VERSION} \
 	.
 
-
-extract:
+extract: build
 	CONTAINER_ID=$(shell docker create python:${PYTHON_VERSION}) && \
 	docker cp $$CONTAINER_ID:/pkg/python${PYTHON_VERSION}.tar.gz . && \
 	docker rm $$CONTAINER_ID
