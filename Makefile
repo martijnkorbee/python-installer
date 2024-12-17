@@ -1,9 +1,11 @@
 PYTHON_VERSION ?= 3.11.11
+BUILD_OPTIONS ?= ""
 INSTALL_DIR ?= "$$HOME/.python/"
 
 build:
 	@docker build --tag python:${PYTHON_VERSION} \
 	--build-arg=PYTHON_VERSION=${PYTHON_VERSION} \
+	--build-arg=BUILD_OPTIONS=${BUILD_OPTIONS} \
 	.
 
 extract:
